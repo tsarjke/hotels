@@ -7,5 +7,5 @@ export interface IAuth {
 export interface IRoutes {
   path: string;
   element: React.FC<any>;
-  props: object;
+  props?: object;
 }

@@ -1,29 +1,28 @@
 import { Navigate } from 'react-router-dom';
-import TestComponent from '../components/TestComponent/TestComponent';
 import { IRoutes } from '../global/types';
+import Login from '../pages/Login';
+import Main from '../pages/Main';
 
 export const privateRoutes: IRoutes[] = [
   {
-    path: '/private',
-    element: TestComponent,
-    props: { text: 'private', number: 1 },
+    path: '/hotels',
+    element: Main,
   },
   {
     path: '/',
     element: Navigate,
-    props: { to: '/private', replace: true },
+    props: { to: '/hotels', replace: true },
   },
 ];
 
 export const publicRoutes: IRoutes[] = [
   {
-    path: '/public',
-    element: TestComponent,
-    props: { text: 'public', number: 2 },
+    path: '/login',
+    element: Login,
   },
   {
     path: '/',
     element: Navigate,
-    props: { to: '/public', replace: true },
+    props: { to: '/login', replace: true },
   },
 ];

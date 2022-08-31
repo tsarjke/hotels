@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useContext } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import AuthContext from '../../context';
 import { privateRoutes, publicRoutes } from '../../router/routes';
+import { useAppSelector } from '../../store/hooks';
 // import TestComponent from '../TestComponent/TestComponent';
 
 const AppRouter: React.FC = () => {
-  const { isAuth, isLoading } = useContext(AuthContext);
+  const { isAuth, isLoading } = useAppSelector((store) => store.hotel);
 
   if (isLoading) {
     return <h2>Loading...</h2>;

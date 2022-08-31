@@ -1,28 +1,26 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { useAppDispatch } from './store/hooks';
 import AppRouter from './components/AppRouter/AppRouter';
-import AuthContext from './context';
+import { setAuth, setLoading } from './store/reducers/hotel';
 
 const App: React.FC = () => {
-  const [isAuth, setAuth] = useState(false);
-  const [isLoading, setLoading] = useState(true);
-  const authValue = useMemo(() => ({ isAuth, setAuth, isLoading }), [isAuth, isLoading]);
+  const dispatch = useAppDispatch();
+  // const { isAuth } = useAppSelector((store) => store.hotel);
 
   useEffect(() => {
     const isLogged = JSON.parse(localStorage.getItem('auth') || '');
 
     if (isLogged) {
-      setAuth(isLogged);
+      dispatch(setAuth(isLogged));
     }
-    setLoading(false);
+    dispatch(setLoading(false));
   }, []);
 
   return (
-    <AuthContext.Provider value={authValue}>
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
-    </AuthContext.Provider>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 };
 
