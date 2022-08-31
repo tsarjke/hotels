@@ -1,15 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
-import hotel from './reducers/hotel';
+import createSagaMiddleware from 'redux-saga';
+import rootReducer from './reducers/rootReducer';
+import rootSaga from './sagas/rootSaga';
 
-const rootReducer = combineReducers({
-  hotel,
-});
+const sagaMiddleware = createSagaMiddleware();
 
-export const setupStore = () =>
+const setupStore = () =>
   configureStore({
     reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
   });
+
+export const store = setupStore();
+sagaMiddleware.run(rootSaga);
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;

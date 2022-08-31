@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { IRoutes } from '../global/types';
+import { IRoutes } from '../types/types';
 import Login from '../pages/Login';
 import Main from '../pages/Main';
 

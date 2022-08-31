@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../store/hooks';
-import { setAuth } from '../store/reducers/hotel';
+import { setAuth } from '../store/reducers/hotel/hotelSlice';
 
 const Login: React.FC = () => {
   const dispatch = useAppDispatch();

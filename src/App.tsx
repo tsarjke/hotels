@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { useAppDispatch } from './store/hooks';
 import AppRouter from './components/AppRouter/AppRouter';
-import { setAuth, setLoading } from './store/reducers/hotel';
+import { setAuth, setLoading } from './store/reducers/hotel/hotelSlice';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
