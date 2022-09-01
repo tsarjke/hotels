@@ -4,12 +4,19 @@ import { useAppDispatch } from './store/hooks';
 import AppRouter from './components/AppRouter/AppRouter';
 import { setAuth, setLoading } from './store/reducers/hotel/hotelSlice';
 
+import './styles/styles.css';
+
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
-  // const { isAuth } = useAppSelector((store) => store.hotel);
 
   useEffect(() => {
-    const isLogged = JSON.parse(localStorage.getItem('auth') || '');
+    const authValue = localStorage.getItem('auth');
+
+    let isLogged;
+
+    if (typeof authValue === 'string') {
+      isLogged = JSON.parse(authValue);
+    }
 
     if (isLogged) {
       dispatch(setAuth(isLogged));
@@ -19,7 +26,9 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <AppRouter />
+      <div className="app">
+        <AppRouter />
+      </div>
     </BrowserRouter>
   );
 };
