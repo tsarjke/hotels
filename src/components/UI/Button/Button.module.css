@@ -1,0 +1,24 @@
+.btn {
+	padding: 10px 18px;
+	width: 100%;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+	border-radius: 4px;
+}
+
+.btn:hover,
+.btn:active {
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+}
+
+.btn:active {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+}
