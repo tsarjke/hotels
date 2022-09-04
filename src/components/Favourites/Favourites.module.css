@@ -1,0 +1,15 @@
+.container {
+	overflow: auto;
+}
+
+.sortContainer {
+	margin-bottom: 8px;
+}
+
+@media (max-width: 1024px) {
+	.container {
+		max-height: 80vh;
+		flex: 1 0;
+	}
+	
+}
