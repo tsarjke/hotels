@@ -6,10 +6,13 @@ interface ModalProps {
   children: React.ReactNode;
   title?: string;
   titlePosition?: 'center' | 'rigth' | 'justify' | '';
+  className?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ title, children, titlePosition }) => (
-  <div className={cl.shadow}>
+const Modal: React.FC<ModalProps> = ({
+  title, children, titlePosition, className,
+}) => (
+  <div className={[cl.shadow, className].join(' ')}>
     <div className={cl.blur} />
     <Panel title={title} titlePosition={titlePosition}>
       {children}
@@ -20,6 +23,7 @@ const Modal: React.FC<ModalProps> = ({ title, children, titlePosition }) => (
 Modal.defaultProps = {
   title: '',
   titlePosition: '',
+  className: '',
 };
 
 export default Modal;

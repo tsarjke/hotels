@@ -3,10 +3,13 @@
 	flex-direction: column;
 }
 
+.container:last-child {
+	margin-bottom: 25px;
+}
+
 .textInput {
 	border: 1px solid #C9CACC;
 	border-radius: 4px;
-	width: 345px;
 	height: 50px;
 	padding: 16px;
 
@@ -16,6 +19,19 @@
 	color: #424242;
 	margin-bottom: 7px;
 }
+
+.textInput::-webkit-calendar-picker-indicator {
+	background: none;
+}
+
+.textInput::-webkit-clear-button {
+	display: none;
+}
+
+.textInput[type="date"] {
+	background: #fff url('../../../assets/images/calendar.svg') 97% 50% no-repeat;
+}
+
 
 .inputLabel {
 	display: inline-flex;
@@ -28,7 +44,12 @@
 	gap: 7px;
 }
 
-.error {
+.error,
+.error>input {
+	color: #EB1717;
+}
+
+.errorText {
 	height: 14px;
 	font-weight: 300;
 	font-size: 12px;

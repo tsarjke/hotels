@@ -3,45 +3,52 @@ import cl from './TextInput.module.css';
 
 export interface InputProps {
   value?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  innerRef?: React.RefObject<HTMLInputElement>;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>, name?: string) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: () => void;
   placeholder?: string;
   label?: string;
-  error?: string;
+  error?: boolean;
+  errorText?: string;
+  name: string;
+  type?: string;
 }
 
-const TextInput: React.FC<InputProps> = ({
-  value,
-  onChange,
-  innerRef,
-  placeholder,
-  label,
-  error,
-}) => (
-  <div className={cl.container}>
-    <label htmlFor={placeholder} className={cl.inputLabel}>
-      {label}
-      <input
-        id={placeholder}
-        type="text"
-        className={cl.textInput}
-        ref={innerRef}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-      />
-    </label>
-    <span className={cl.error}>{error}</span>
-  </div>
+const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
+  ({
+    value, placeholder, label, error, errorText, name, type, onBlur, onFocus, onChange,
+  }, ref) => (
+    <div className={cl.container}>
+      <label htmlFor={name} className={error ? [cl.inputLabel, cl.error].join(' ') : cl.inputLabel}>
+        {label}
+        <input
+          id={name}
+          type={type}
+          className={cl.textInput}
+          ref={ref}
+          value={value}
+          onChange={onChange ? (event) => onChange(event, name) : () => null}
+          onBlur={onBlur || (() => null)}
+          onFocus={onFocus || (() => null)}
+          placeholder={placeholder}
+          required={type === 'date'}
+        />
+      </label>
+      <span className={cl.errorText}>{error ? errorText : ''}</span>
+    </div>
+  ),
 );
 
 TextInput.defaultProps = {
   value: undefined,
   onChange: () => null,
-  innerRef: undefined,
+  onBlur: () => null,
+  onFocus: () => null,
   placeholder: '',
   label: '',
-  error: '',
+  error: false,
+  errorText: '',
+  type: 'text',
 };
 
 export default TextInput;
