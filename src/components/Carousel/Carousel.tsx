@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { useAppSelector } from '../../store/hooks';
+
+import 'swiper/css';
 
 import cl from './Carousel.module.css';
 
@@ -11,21 +15,16 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ className }) => {
   const { sliderPics } = useAppSelector((store) => store.hotel);
-  const settings = {
-    slidesToShow: 3,
-    swipeToSlide: true,
-    touchThreshold: 100000,
-    arrows: false,
-  };
+
   return (
     <div className={[cl.slider, className].join(' ')}>
-      <Slider {...settings} className={cl.slider}>
+      <Swiper className={cl.slider} spaceBetween={0} slidesPerView={3.3} loop>
         {sliderPics.map((url) => (
-          <div key={url} className={cl.slide}>
+          <SwiperSlide key={url} className={cl.slide}>
             <img src={url} alt="" />
-          </div>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
     </div>
   );
 };
