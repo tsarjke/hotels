@@ -1,6 +1,5 @@
 import React from 'react';
 import house from '../../assets/images/house.svg';
-// import { useAppSelector } from '../../store/hooks';
 import { IHotelInfo } from '../../types/types';
 import DateStr from '../DateStr/DateStr';
 import Like from '../Like/Like';
@@ -16,7 +15,6 @@ interface HotelsItemProps {
 }
 
 const HotelsItem: React.FC<HotelsItemProps> = ({ hotel, pic, onCLick }) => {
-  // const { checkIn, days } = useAppSelector((store) => store.hotel.searchData);
   const {
     hotelName, priceAvg, stars, like, checkIn, days,
   } = hotel;
@@ -38,7 +36,7 @@ const HotelsItem: React.FC<HotelsItemProps> = ({ hotel, pic, onCLick }) => {
           <span>
             {days}
             {' '}
-            день
+            дней
           </span>
         </div>
         <div className={cl.stars}>

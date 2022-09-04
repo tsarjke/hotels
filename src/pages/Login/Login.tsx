@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from '../../components/UI/Form/Form';
 import Modal from '../../components/UI/Modal/Modal';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch } from '../../store/hooks';
 import { setAuth } from '../../store/reducers/hotel/hotelSlice';
 import validateField from '../../utils/validateField';
 

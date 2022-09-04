@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef } from 'react';
 import { useAppDispatch } from '../../store/hooks';
 import { fetctHotelsInfoRequest, setSearchData } from '../../store/reducers/hotel/hotelSlice';
@@ -24,10 +22,11 @@ const SearchPanel: React.FC = () => {
     const days = daysRef.current?.value;
     const location = locationRef.current?.value;
     if (checkIn && days && location) {
-      // dispatch(fetctHotelsInfoRequest({ checkOut: getCheckOut(checkIn, days), checkIn, days, location }));
-      console.log({
-        checkOut: getCheckOut(checkIn, days), checkIn, days, location,
-      });
+      dispatch(
+        fetctHotelsInfoRequest({
+          checkOut: getCheckOut(checkIn, days), checkIn, days, location,
+        }),
+      );
       dispatch(setSearchData({ checkIn, days, location }));
     }
   };

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setLike, setSortOprion, toggleFavourites } from '../../store/reducers/hotel/hotelSlice';
