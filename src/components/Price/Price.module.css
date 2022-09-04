@@ -1,0 +1,13 @@
+.price {
+	font-size: 17px;
+	line-height: 22px;
+	text-align: right;
+	letter-spacing: -0.408px;
+	color: #424242;
+}
+
+@media (max-width: 480px) {
+	.price {
+		font-size: 15px;
+	}
+}

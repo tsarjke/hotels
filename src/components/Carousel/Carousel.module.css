@@ -1,0 +1,17 @@
+.slider {
+	cursor: grab;
+}
+
+.slider:active {
+	cursor: grabbing;
+}
+
+.slide {
+}
+
+.slide img {
+	border-radius: 10px;
+	margin: 0 auto;
+	max-width: 95%;
+	max-height: 100%;
+}

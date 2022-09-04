@@ -1,0 +1,8 @@
+.btn {
+	background: transparent;
+	margin: 0 auto;
+}
+
+.like svg path {
+	fill: #E55858;
+}
