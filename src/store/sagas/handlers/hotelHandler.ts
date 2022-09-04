@@ -7,6 +7,7 @@ import {
   fetctHotelsInfoRSuccess,
   fetctHotelsInfoRequest,
   fetctHotelsInfoError,
+  setLoading,
 } from '../../reducers/hotel/hotelSlice';
 import { IHotelInfo, IRequestForHotel } from '../../../types/types';
 
@@ -14,6 +15,7 @@ export function* handleGetHotels(
   action: PayloadAction<IRequestForHotel>,
 ): Generator<StrictEffect, void, IHotelInfo[]> {
   try {
+    yield put(setLoading(true));
     const data = yield call(HotelService.requestHotelsInfo, action.payload);
     yield put(fetctHotelsInfoRSuccess(data));
   } catch (error: unknown) {
@@ -24,6 +26,8 @@ export function* handleGetHotels(
     } else {
       yield put(fetctHotelsInfoError('Something went wrong'));
     }
+  } finally {
+    yield put(setLoading(false));
   }
 }
 
