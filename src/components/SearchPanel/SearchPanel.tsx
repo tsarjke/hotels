@@ -22,11 +22,8 @@ const SearchPanel: React.FC = () => {
     const days = daysRef.current?.value;
     const location = locationRef.current?.value;
     if (checkIn && days && location) {
-      dispatch(
-        fetctHotelsInfoRequest({
-          checkOut: getCheckOut(checkIn, days), checkIn, days, location,
-        }),
-      );
+      const checkOut = getCheckOut(checkIn, days);
+      dispatch(fetctHotelsInfoRequest({ checkOut, checkIn, location }));
       dispatch(setSearchData({ checkIn, days, location }));
     }
   };

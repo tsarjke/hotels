@@ -16,7 +16,7 @@ export const getCurrentDate = () => {
 };
 
 export const getRusDate = (date: string) => {
-  const [day, month, year] = date.split('-');
+  const [year, month, day] = date.split('-');
   const monthsRus = [
     'января',
     'февраля',

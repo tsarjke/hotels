@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   call, put, StrictEffect, takeLatest,
 } from 'redux-saga/effects';
@@ -15,7 +16,7 @@ export function* handleGetHotels(
   action: PayloadAction<IRequestForHotel>,
 ): Generator<StrictEffect, void, IHotelInfo[]> {
   try {
-    yield put(setLoading(true));
+    put(setLoading(true));
     const data = yield call(HotelService.requestHotelsInfo, action.payload);
     yield put(fetctHotelsInfoRSuccess(data));
   } catch (error: unknown) {
@@ -27,7 +28,7 @@ export function* handleGetHotels(
       yield put(fetctHotelsInfoError('Something went wrong'));
     }
   } finally {
-    yield put(setLoading(false));
+    put(setLoading(false));
   }
 }
 
