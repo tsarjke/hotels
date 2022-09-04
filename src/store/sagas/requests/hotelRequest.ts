@@ -5,7 +5,7 @@ export default class HotelService {
   static async requestHotelsInfo(parameters: IRequestForHotel) {
     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: 'http://engine.hotellook.com/api/v2/cache.json',
+      url: 'https://engine.hotellook.com/api/v2/cache.json',
       params: {
         ...parameters,
       },
