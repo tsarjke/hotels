@@ -5,9 +5,13 @@ export interface IAuth {
 }
 
 export interface IHotelInfo {
+  hotelId: number;
   priceAvg: number;
   stars: number;
   hotelName: string;
+  like?: boolean;
+  checkIn: string;
+  days: string;
 }
 
 export interface IRoutes {
@@ -21,4 +25,15 @@ export interface IRequestForHotel {
   currency?: string;
   checkIn: string;
   checkOut: string;
+}
+
+export interface IHotelSearch {
+  location: string;
+  checkIn: string;
+  days: string;
+}
+
+export interface ISortOption {
+  parameter: 'priceAvg' | 'stars' | '';
+  direction: 'asc' | 'desc' | '';
 }

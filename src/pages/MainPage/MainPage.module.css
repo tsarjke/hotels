@@ -1,0 +1,102 @@
+.container {
+	background: #E5E5E5;
+	min-height: 100%;
+	padding-bottom: 50px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 32px;
+}
+
+.title {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 28px;
+	color: #424242;
+}
+
+.logout {
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: -0.408px;
+	color: #41522E;
+	display: flex;
+	align-items: center;
+	background: transparent;
+}
+
+.logout:after {
+	content: '';
+	margin-left: 15px;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: url('../../assets/images/logout.svg') 0 0/18px 18px no-repeat;
+}
+
+.logout:hover {
+	background: transparent;
+}
+
+.mainSectionContainer {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 10%;
+}
+
+.aside {
+	flex: 0 0;
+	margin: 0 24px 30px 0;
+}
+
+.hotels {
+	flex: 1 0;
+	overflow: hidden;
+}
+
+@media (max-width: 1440px) {
+	.mainSectionContainer {
+		padding: 0 5%;
+	}
+}
+
+@media (max-width: 1024px) {
+	.mainSectionContainer {
+		flex-direction: column;
+	}
+
+	.aside {
+		display: flex;
+		justify-content: space-between;
+		max-height: 80vh;
+		margin: 0 0 30px 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.aside {
+		flex-direction: column;
+		max-height: fit-content;
+	}
+}
+
+@media (max-width: 480px) {
+	.mainSectionContainer {
+		padding: 0 3%;
+	}
+
+	.header {
+		padding: 16px;
+	}
+	
+	.title {
+		font-size: 22px;
+	}
+
+	.logout:after {
+		margin-left: 8px;
+	}
+}
