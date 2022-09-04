@@ -65,10 +65,18 @@ const Login: React.FC = () => {
       localStorage.setItem('auth', 'true');
       navigate('/hotels', { replace: true });
     } else {
-      setFormError({
-        emailError: true,
-        passwordError: true,
-      });
+      if (formError.passwordError) {
+        setFormError({
+          ...formError,
+          passwordError: true,
+        });
+      }
+      if (formError.emailError) {
+        setFormError({
+          ...formError,
+          emailError: true,
+        });
+      }
     }
   };
 
